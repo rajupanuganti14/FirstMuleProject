@@ -5,8 +5,11 @@
 	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
 http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd
 http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/ee/core/current/mule-ee.xsd">
+	<http:listener-config name="HTTP_Listener_config" doc:name="HTTP Listener config" doc:id="48db9c89-2b0e-42c3-8a81-a30bf6c09a00" >
+		<http:listener-connection host="0.0.0.0" port="8082" />
+	</http:listener-config>
 	<flow name="iwatchFlow" doc:id="6a983c5d-9cf5-4bbe-924e-2aa1ff2505e8" >
-		<http:listener doc:name="Listener" doc:id="f3281542-6864-4918-9e17-59b8e8114da6" />
+		<http:listener doc:name="Listener" doc:id="f3281542-6864-4918-9e17-59b8e8114da6" config-ref="HTTP_Listener_config" path="/errer"/>
 		<ee:transform doc:name="Transform Message" doc:id="2ae12253-ada9-4aa3-acc5-30358067a79f" />
 	</flow>
 </mule>
