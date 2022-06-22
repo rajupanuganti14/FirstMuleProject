@@ -10,6 +10,13 @@ http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/
 	</http:listener-config>
 	<flow name="iwatchFlow" doc:id="6a983c5d-9cf5-4bbe-924e-2aa1ff2505e8" >
 		<http:listener doc:name="Listener" doc:id="f3281542-6864-4918-9e17-59b8e8114da6" config-ref="HTTP_Listener_config" path="/errer"/>
-		<ee:transform doc:name="Transform Message" doc:id="2ae12253-ada9-4aa3-acc5-30358067a79f" />
+		<ee:transform doc:name="Transform Message" doc:id="2ae12253-ada9-4aa3-acc5-30358067a79f" >
+			<ee:message >
+				<ee:set-payload ><![CDATA[%dw 2.0
+output application/json
+---
+payload]]></ee:set-payload>
+			</ee:message>
+		</ee:transform>
 	</flow>
 </mule>
